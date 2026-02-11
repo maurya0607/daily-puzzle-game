@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ # 🎮 Daily Puzzle Game
 
-## Getting Started
+A high-performance, fully responsive Daily Puzzle Game built using **Next.js, Tailwind CSS, and Firebase Authentication**.  
+Designed with client-side optimization, offline support, and scalable architecture in mind.
 
-First, run the development server:
+🔗 **Live Demo:**  
+https://daily-puzzle-game-two.vercel.app
+
+---
+
+## 📌 Project Overview
+
+Daily Puzzle Game is a browser-based interactive puzzle platform that generates a unique puzzle daily using a date-based seed algorithm.  
+
+The application emphasizes:
+- ⚡ Fast client-side performance
+- 🔐 Secure authentication
+- 📱 Mobile-first responsive design
+- 💾 Offline functionality
+- 🧠 Optimized puzzle generation engine
+
+---
+
+## 🚀 Core Features
+
+### 🔐 Authentication
+- Google Sign-In using Firebase
+- Authorized domain configuration
+- Secure logout flow
+
+### 🧠 Puzzle Engine
+- 5 Dynamic Puzzle Types
+- Date-based deterministic puzzle generator
+- Client-side solution validation engine
+- Attempts tracking system
+- Game-over state management
+- Refresh puzzle functionality
+
+### 💾 Storage & Offline Support
+- Local progress persistence
+- Offline-ready gameplay
+- No unnecessary API calls
+
+### 🎨 UI/UX
+- Glassmorphism-inspired modern UI
+- Fully responsive (Mobile + Tablet + Desktop)
+- Smooth transitions & animations
+- Tailwind CSS utility-based styling
+
+---
+
+## 🏗 Architecture
+
+
+Architecture follows:
+- Modular puzzle framework
+- Separation of logic & UI
+- Stateless validation engine
+- Deterministic daily seed strategy
+
+---
+
+## 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|----------|
+| Next.js (App Router) | Framework |
+| React | UI Components |
+| Tailwind CSS | Styling |
+| Firebase Auth | Authentication |
+| Vercel | Deployment |
+| IndexedDB / LocalStorage | Client Persistence |
+
+---
+
+## ⚡ Performance Optimization
+
+- <100ms puzzle generation
+- Optimized client bundle
+- Lazy rendering approach
+- Minimal re-renders using React state control
+- No redundant API calls
+- Offline-first design
+
+---
+
+## 🔒 Security Considerations
+
+- Firebase domain authorization configured
+- No sensitive logic exposed
+- Controlled authentication flow
+- Client input validation
+
+---
+
+## 📦 Local Development
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/maurya0607/daily-puzzle-game.git
+cd daily-puzzle-game
