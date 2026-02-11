@@ -3,18 +3,35 @@
 import { useState } from "react";
 import Login from "../components/Login";
 import PuzzleGame from "../components/PuzzleGame";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+
+
 
 export default function Home() {
   const [user, setUser] = useState(null);
+  // ✅ Add this function
+  function handleLogout() {
+    signOut(auth)
+      .then(() => {
+        setUser(null); // VERY IMPORTANT
+        console.log("User logged out");
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
+  }
+
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f172a] via-[#020617] to-black text-white px-4 relative overflow-hidden">
+    <main className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#0f172a] via-[#020617] to-black text-white px-4 relative overflow-hidden">
       {/* <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-4">
       */}
-     
+
 
       {/* Card Container */}
-      <div className="w-full max-w-md bg-gray-900/70 backdrop-blur-xl shadow-2xl rounded-3xl p-8 border border-gray-700 transition-all duration-500">
-       
+      <div className="w-full max-w-md bg-gray-900/70 backdrop-blur-xl shadow-2xl rounded-3xl p-5 sm:p-8
+           border border-gray-700 transition-all duration-500">
+
 
 
         {/* App Title */}
@@ -28,13 +45,16 @@ export default function Home() {
         </p>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mb-6" />
+        <div className="h-px bg-linear-to-r  from-transparent via-gray-600 to-transparent mb-6" />
 
         {/* Auth or Game */}
         {!user ? (
           <Login onLogin={setUser} />
         ) : (
-          <PuzzleGame user={user} />
+          <PuzzleGame
+            user={user}
+            onLogout={handleLogout}
+          />
         )}
 
         {/* Footer */}
@@ -48,4 +68,3 @@ export default function Home() {
   );
 }
 
-  

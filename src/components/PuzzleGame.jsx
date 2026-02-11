@@ -41,8 +41,8 @@ export default function PuzzleGame({ user, onLogout }) {
     if (data.question) {
       setQuestion(data.question);
     } else if (data.sequence) {
-        setQuestion(`Remember this sequence: ${data.sequence.join(" ")}`);
-      }
+      setQuestion(`Remember this sequence: ${data.sequence.join(" ")}`);
+    }
 
     setSolution(data.solution);
   }, []);
@@ -68,57 +68,56 @@ export default function PuzzleGame({ user, onLogout }) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f172a] via-black to-[#0f172a] text-white px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-[#0f172a] via-black to-[#0f172a] text-white px-4">
 
-      <div className="w-full max-w-md bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl p-8 text-center">
+      <div className="w-full max-w-md md:max-w-lg bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl p-5 sm:p-8 text-center my-6">
 
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-xl font-bold">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-bold justify-center text-center">
             🎮 Daily Puzzle
           </h1>
 
-          <button
+          {/* <button
             onClick={onLogout}
-            className="text-sm text-red-400 hover:text-red-500 transition"
+            className="text-xs sm:text-sm text-red-400 hover:text-red-500 transition"
           >
             Logout
-          </button>
+          </button> */}
         </div>
 
-        <p className="text-gray-400 text-sm mb-6">
+        <p className="text-gray-400 text-xs sm:text-sm mb-6">
           {new Date().toDateString()}
         </p>
 
         {/* Puzzle */}
         <div className="mb-6">
-          <p className="text-green-400 font-semibold text-lg">
+          <p className="text-green-400 font-semibold text-base sm:text-lg">
             🔥 Today's Puzzle: {puzzleType}
           </p>
 
           {question && (
-            <p className="text-2xl font-bold mt-3 tracking-widest">
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold mt-3 tracking-widest break-wrap">
               {question}
             </p>
           )}
         </div>
 
-        {/* Input */}
-        <div className="flex gap-3 justify-center mb-4">
+        {/* Input Section */}
+        <div className="flex flex-col sm:flex-row gap-3 mb-4">
           <input
             type="text"
             value={guess}
             onChange={(e) => setGuess(e.target.value)}
             disabled={gameOver}
             placeholder="Enter your answer..."
-            className="flex-1 px-4 py-2 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+            className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           />
 
           <button
             onClick={handleSubmit}
             disabled={gameOver}
-            className="px-5 py-2 bg-green-600 hover:bg-green-700 active:scale-95 transition-all rounded-lg font-semibold shadow-md"
-          >
+            className="w-full sm:w-auto px-5 py-2 bg-green-600 hover:bg-green-700 active:scale-95 transition-all rounded-lg font-semibold shadow-md">
             Submit
           </button>
         </div>
@@ -131,17 +130,16 @@ export default function PuzzleGame({ user, onLogout }) {
           🔄 Refresh Puzzle
         </button>
 
-        <p className="text-gray-400 mb-2">
+        <p className="text-gray-400 mb-2 text-sm">
           Attempts: {attempts}
         </p>
 
         {result && (
           <p
-            className={`text-lg font-semibold ${
-              result === "correct"
-                ? "text-green-400"
-                : "text-yellow-400"
-            }`}
+            className={`text-lg font-semibold ${result === "correct"
+              ? "text-green-400"
+              : "text-yellow-400"
+              }`}
           >
             {result}
           </p>
@@ -154,9 +152,19 @@ export default function PuzzleGame({ user, onLogout }) {
             </span>
           </div>
         )}
+         <button
+        onClick={onLogout}
+        className="w-full sm:w-auto px-5 m-3 py-2 bg-blue-600 text-red-400 hover:bg-green-700 active:scale-95 transition-all rounded-lg font-semibold shadow-md">
+        {/* className="text-xs sm:text-sm text-red-400 hover:text-red-500 transition"> */}
+        Logout
+      </button>
+
       </div>
+      
     </div>
   );
 }
+
+
 
 
